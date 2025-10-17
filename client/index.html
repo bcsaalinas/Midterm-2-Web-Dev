@@ -10,84 +10,331 @@
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header data-bs-theme="dark">
-      <div class="text-bg-dark collapse" id="navbarHeader" style="">
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-          <div class="row">
-            <div class="col-sm-8 col-md-7 py-4">
-              <h4>About</h4>
-              <p class="text-body-secondary">
-                Add some information about the album below, the author, or any
-                other background context. Make it a few sentences long so folks
-                can pick up some informative tidbits. Then, link them off to
-                some social networking sites or contact information.
-              </p>
-            </div>
-            <div class="col-sm-4 offset-md-1 py-4">
-              <h4>Contact</h4>
-              <ul class="list-unstyled">
-                <li><a href="#" class="text-white">Follow on X</a></li>
-                <li><a href="#" class="text-white">Like on Facebook</a></li>
-                <li><a href="#" class="text-white">Email me</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="navbar navbar-dark bg-dark shadow-sm">
-        <div class="container">
-          <a href="#" class="navbar-brand d-flex align-items-center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              aria-hidden="true"
-              class="me-2"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"
-              ></path>
-              <circle cx="12" cy="13" r="4"></circle>
-            </svg>
-            <strong>Album</strong>
-          </a>
+          <a class="navbar-brand" href="#">Superhero-pedia</a>
           <button
-            class="navbar-toggler collapsed"
+            class="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
-            data-bs-target="#navbarHeader"
-            aria-controls="navbarHeader"
+            data-bs-target="#main-nav"
+            aria-controls="main-nav"
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
             <span class="navbar-toggler-icon"></span>
           </button>
+          <div
+            id="main-nav"
+            class="collapse navbar-collapse justify-content-end"
+          >
+            <a class="btn btn-outline-light" href="#">About</a>
+          </div>
         </div>
-      </div>
+      </nav>
+
+      <section class="mt-4">
+        <h2 class="h5">Appearance</h2>
+        <dl class="row mb-0">
+          <dt class="col-sm-4">Gender</dt>
+          <dd id="appearance-gender" class="col-sm-8">—</dd>
+          <dt class="col-sm-4">Race</dt>
+          <dd id="appearance-race" class="col-sm-8">—</dd>
+          <dt class="col-sm-4">Height</dt>
+          <dd id="appearance-height" class="col-sm-8">—</dd>
+          <dt class="col-sm-4">Weight</dt>
+          <dd id="appearance-weight" class="col-sm-8">—</dd>
+          <dt class="col-sm-4">Eye color</dt>
+          <dd id="appearance-eyes" class="col-sm-8">—</dd>
+          <dt class="col-sm-4">Hair color</dt>
+          <dd id="appearance-hair" class="col-sm-8">—</dd>
+        </dl>
+      </section>
+
+      <section class="mt-4">
+        <h2 class="h5">Work and Connections</h2>
+        <dl class="row mb-0">
+          <dt class="col-sm-4">Occupation</dt>
+          <dd id="work-occupation" class="col-sm-8">—</dd>
+          <dt class="col-sm-4">Base</dt>
+          <dd id="work-base" class="col-sm-8">—</dd>
+          <dt class="col-sm-4">Affiliations</dt>
+          <dd id="connections-group" class="col-sm-8">—</dd>
+          <dt class="col-sm-4">Relatives</dt>
+          <dd id="connections-relatives" class="col-sm-8">—</dd>
+        </dl>
+      </section>
     </header>
-    <main>
-      <div class="container mb-4">
-        <div
-          class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"
-          id="card-container"
-        >
-          <!-- Cards will be dynamically inserted here -->
-        </div>
+
+    <section class="hero py-5 text-center text-lg-start">
+      <div class="container">
+        <h1 class="display-5 fw-semibold mb-3">Unmask Every Legend</h1>
+        <p class="lead mb-0 text-white-50">
+          Browse powerstats, origins, and alliances for heroes and villains
+          across the multiverse.
+        </p>
+      </div>
+    </section>
+
+    <main class="py-5">
+      <div class="container">
+        <section class="mb-4" aria-label="Hero search">
+          <form id="search-form" class="input-group input-group-lg">
+            <label class="visually-hidden" for="search-input"
+              >Search hero</label
+            >
+            <input
+              id="search-input"
+              class="form-control"
+              type="search"
+              placeholder="Search by name or ID"
+              autocomplete="off"
+            />
+            <button class="btn btn-primary" type="submit">Search</button>
+          </form>
+        </section>
+
+        <section class="mb-3" aria-live="polite">
+          <div id="feedback" class="alert alert-info d-none mb-0" role="status">
+            Loading hero…
+          </div>
+        </section>
+
+        <section aria-label="Hero details">
+          <div class="row g-4 align-items-center">
+            <div class="col-12 col-lg-4">
+              <div class="card shadow-sm overflow-hidden">
+                <div class="ratio ratio-4x3 bg-light">
+                  <img
+                    id="hero-image"
+                    class="img-fluid hero-image"
+                    src="https://via.placeholder.com/400x300?text=Hero+portrait"
+                    alt="Portrait of the selected hero"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-8">
+              <div class="card shadow-sm">
+                <div class="card-body">
+                  <div
+                    class="d-flex justify-content-between align-items-start mb-3"
+                  >
+                    <div>
+                      <p class="text-muted mb-1 small">
+                        ID <span id="hero-id">—</span>
+                      </p>
+                      <h1 id="hero-name" class="h3 mb-0">Select a hero</h1>
+                      <p id="hero-full-name" class="text-muted mb-0">
+                        Full name will appear here
+                      </p>
+                    </div>
+                    <div class="btn-group">
+                      <button
+                        id="prev-btn"
+                        class="btn btn-outline-secondary"
+                        type="button"
+                      >
+                        Prev
+                      </button>
+                      <button
+                        id="next-btn"
+                        class="btn btn-outline-secondary"
+                        type="button"
+                      >
+                        Next
+                      </button>
+                    </div>
+                  </div>
+
+                  <section class="mb-4">
+                    <h2 class="h5">Powerstats</h2>
+                    <dl class="row mb-0">
+                      <dt class="col-sm-4">Intelligence</dt>
+                      <dd id="stat-intelligence" class="col-sm-8">—</dd>
+                      <dt class="col-sm-4">Strength</dt>
+                      <dd id="stat-strength" class="col-sm-8">—</dd>
+                      <!-- add more stats placeholders -->
+                    </dl>
+                  </section>
+
+                  <section>
+                    <h2 class="h5">Biography</h2>
+                    <p id="hero-biography" class="mb-1">
+                      Birthplace, alignment, aliases…
+                    </p>
+                  </section>
+
+                  <section class="mb-4">
+                    <h2 class="h5">Appearance</h2>
+                    <dl class="row mb-0">
+                      <dt class="col-sm-4">Gender</dt>
+                      <dd id="appearance-gender" class="col-sm-8">—</dd>
+                      <dt class="col-sm-4">Race</dt>
+                      <dd id="appearance-race" class="col-sm-8">—</dd>
+                      <dt class="col-sm-4">Height</dt>
+                      <dd id="appearance-height" class="col-sm-8">—</dd>
+                      <dt class="col-sm-4">Weight</dt>
+                      <dd id="appearance-weight" class="col-sm-8">—</dd>
+                      <dt class="col-sm-4">Eye color</dt>
+                      <dd id="appearance-eye" class="col-sm-8">—</dd>
+                      <dt class="col-sm-4">Hair color</dt>
+                      <dd id="appearance-hair" class="col-sm-8">—</dd>
+                    </dl>
+                  </section>
+
+                  <section>
+                    <h2 class="h5">Connections &amp; Work</h2>
+                    <dl class="row mb-0">
+                      <dt class="col-sm-4">Group affiliation</dt>
+                      <dd id="connections-group" class="col-sm-8">
+                        Group affiliation placeholder.
+                      </dd>
+                      <dt class="col-sm-4">Occupation</dt>
+                      <dd id="connections-occupation" class="col-sm-8">—</dd>
+                      <dt class="col-sm-4">Base</dt>
+                      <dd id="connections-base" class="col-sm-8">—</dd>
+                    </dl>
+                  </section>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="gallery mt-5" aria-label="Featured heroes">
+          <div
+            class="d-flex flex-column flex-lg-row align-items-lg-end justify-content-between mb-4"
+          >
+            <div>
+              <h2 class="text-white h4 mb-1">Featured heroes</h2>
+              <p class="text-white-50 small mb-0">
+                Choose a card to spotlight detailed stats.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4"
+            id="gallery"
+          >
+            <article class="col">
+              <div class="card gallery-card h-100 shadow-sm">
+                <div
+                  class="ratio ratio-4x3 bg-light d-flex align-items-center justify-content-center"
+                >
+                  <span class="text-muted">Portrait incoming</span>
+                </div>
+                <div class="card-body">
+                  <p class="text-muted small mb-1">ID 1</p>
+                  <h3 class="h5 mb-2">Sample Hero</h3>
+                  <p class="text-muted mb-0">
+                    Powerstat preview and affiliation snapshot.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="col">
+              <div class="card gallery-card h-100 shadow-sm">
+                <div
+                  class="ratio ratio-4x3 bg-light d-flex align-items-center justify-content-center"
+                >
+                  <span class="text-muted">Portrait incoming</span>
+                </div>
+                <div class="card-body">
+                  <p class="text-muted small mb-1">ID 2</p>
+                  <h3 class="h5 mb-2">Featured Vigilante</h3>
+                  <p class="text-muted mb-0">
+                    Strength 90 • Intelligence 85 • League aligned.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="col">
+              <div class="card gallery-card h-100 shadow-sm">
+                <div
+                  class="ratio ratio-4x3 bg-light d-flex align-items-center justify-content-center"
+                >
+                  <span class="text-muted">Portrait incoming</span>
+                </div>
+                <div class="card-body">
+                  <p class="text-muted small mb-1">ID 3</p>
+                  <h3 class="h5 mb-2">Cosmic Guardian</h3>
+                  <p class="text-muted mb-0">
+                    Energy projection expert with intergalactic reach.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="col">
+              <div class="card gallery-card h-100 shadow-sm">
+                <div
+                  class="ratio ratio-4x3 bg-light d-flex align-items-center justify-content-center"
+                >
+                  <span class="text-muted">Portrait incoming</span>
+                </div>
+                <div class="card-body">
+                  <p class="text-muted small mb-1">ID 4</p>
+                  <h3 class="h5 mb-2">Mystic Adept</h3>
+                  <p class="text-muted mb-0">
+                    Reality manipulation trainee mastering arcane arts.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="col">
+              <div class="card gallery-card h-100 shadow-sm">
+                <div
+                  class="ratio ratio-4x3 bg-light d-flex align-items-center justify-content-center"
+                >
+                  <span class="text-muted">Portrait incoming</span>
+                </div>
+                <div class="card-body">
+                  <p class="text-muted small mb-1">ID 5</p>
+                  <h3 class="h5 mb-2">Speedster Prime</h3>
+                  <p class="text-muted mb-0">
+                    Velocity 100 • Reaction time unmatched across sectors.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="col">
+              <div class="card gallery-card h-100 shadow-sm">
+                <div
+                  class="ratio ratio-4x3 bg-light d-flex align-items-center justify-content-center"
+                >
+                  <span class="text-muted">Portrait incoming</span>
+                </div>
+                <div class="card-body">
+                  <p class="text-muted small mb-1">ID 6</p>
+                  <h3 class="h5 mb-2">Stealth Operative</h3>
+                  <p class="text-muted mb-0">
+                    Tactical strategist with cutting-edge stealth gear.
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
       </div>
     </main>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-      crossorigin="anonymous"
-    ></script>
+    <footer class="py-4 bg-light mt-auto">
+      <div class="container text-center text-muted small">
+        Built by Alberto Cisneros and Juan Francisco Luna | Superhero data
+        courtesy of Superhero API
+      </div>
+    </footer>
+
+    <script type="module" src="main.js"></script>
   </body>
 </html>
