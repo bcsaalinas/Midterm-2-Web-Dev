@@ -36,38 +36,6 @@
           </div>
         </div>
       </nav>
-
-      <section class="mt-4">
-        <h2 class="h5">Appearance</h2>
-        <dl class="row mb-0">
-          <dt class="col-sm-4">Gender</dt>
-          <dd id="appearance-gender" class="col-sm-8">—</dd>
-          <dt class="col-sm-4">Race</dt>
-          <dd id="appearance-race" class="col-sm-8">—</dd>
-          <dt class="col-sm-4">Height</dt>
-          <dd id="appearance-height" class="col-sm-8">—</dd>
-          <dt class="col-sm-4">Weight</dt>
-          <dd id="appearance-weight" class="col-sm-8">—</dd>
-          <dt class="col-sm-4">Eye color</dt>
-          <dd id="appearance-eyes" class="col-sm-8">—</dd>
-          <dt class="col-sm-4">Hair color</dt>
-          <dd id="appearance-hair" class="col-sm-8">—</dd>
-        </dl>
-      </section>
-
-      <section class="mt-4">
-        <h2 class="h5">Work and Connections</h2>
-        <dl class="row mb-0">
-          <dt class="col-sm-4">Occupation</dt>
-          <dd id="work-occupation" class="col-sm-8">—</dd>
-          <dt class="col-sm-4">Base</dt>
-          <dd id="work-base" class="col-sm-8">—</dd>
-          <dt class="col-sm-4">Affiliations</dt>
-          <dd id="connections-group" class="col-sm-8">—</dd>
-          <dt class="col-sm-4">Relatives</dt>
-          <dd id="connections-relatives" class="col-sm-8">—</dd>
-        </dl>
-      </section>
     </header>
 
     <section class="hero py-5 text-center text-lg-start">
@@ -128,7 +96,9 @@
                       <p class="text-muted mb-1 small">
                         ID <span id="hero-id">—</span>
                       </p>
-                      <h1 id="hero-name" class="h3 mb-0">Select a hero</h1>
+                      <h1 id="hero-name" class="h3 mb-0" aria-live="polite">
+                        Select a hero
+                      </h1>
                       <p id="hero-full-name" class="text-muted mb-0">
                         Full name will appear here
                       </p>
@@ -158,15 +128,29 @@
                       <dd id="stat-intelligence" class="col-sm-8">—</dd>
                       <dt class="col-sm-4">Strength</dt>
                       <dd id="stat-strength" class="col-sm-8">—</dd>
-                      <!-- add more stats placeholders -->
+                      <dt class="col-sm-4">Speed</dt>
+                      <dd id="stat-speed" class="col-sm-8">—</dd>
+                      <dt class="col-sm-4">Durability</dt>
+                      <dd id="stat-durability" class="col-sm-8">—</dd>
+                      <dt class="col-sm-4">Power</dt>
+                      <dd id="stat-power" class="col-sm-8">—</dd>
+                      <dt class="col-sm-4">Combat</dt>
+                      <dd id="stat-combat" class="col-sm-8">—</dd>
                     </dl>
                   </section>
 
                   <section>
                     <h2 class="h5">Biography</h2>
-                    <p id="hero-biography" class="mb-1">
-                      Birthplace, alignment, aliases…
-                    </p>
+                    <dl class="row mb-0">
+                      <dt class="col-sm-4">Full name</dt>
+                      <dd id="biography-full-name" class="col-sm-8">—</dd>
+                      <dt class="col-sm-4">Place of birth</dt>
+                      <dd id="biography-place" class="col-sm-8">—</dd>
+                      <dt class="col-sm-4">Alignment</dt>
+                      <dd id="biography-alignment" class="col-sm-8">—</dd>
+                      <dt class="col-sm-4">Aliases</dt>
+                      <dd id="biography-aliases" class="col-sm-8">—</dd>
+                    </dl>
                   </section>
 
                   <section class="mb-4">
@@ -181,7 +165,7 @@
                       <dt class="col-sm-4">Weight</dt>
                       <dd id="appearance-weight" class="col-sm-8">—</dd>
                       <dt class="col-sm-4">Eye color</dt>
-                      <dd id="appearance-eye" class="col-sm-8">—</dd>
+                      <dd id="appearance-eyes" class="col-sm-8">—</dd>
                       <dt class="col-sm-4">Hair color</dt>
                       <dd id="appearance-hair" class="col-sm-8">—</dd>
                     </dl>
@@ -191,13 +175,13 @@
                     <h2 class="h5">Connections &amp; Work</h2>
                     <dl class="row mb-0">
                       <dt class="col-sm-4">Group affiliation</dt>
-                      <dd id="connections-group" class="col-sm-8">
-                        Group affiliation placeholder.
-                      </dd>
+                      <dd id="connections-group" class="col-sm-8">—</dd>
                       <dt class="col-sm-4">Occupation</dt>
-                      <dd id="connections-occupation" class="col-sm-8">—</dd>
+                      <dd id="work-occupation" class="col-sm-8">—</dd>
                       <dt class="col-sm-4">Base</dt>
-                      <dd id="connections-base" class="col-sm-8">—</dd>
+                      <dd id="work-base" class="col-sm-8">—</dd>
+                      <dt class="col-sm-4">Relatives</dt>
+                      <dd id="connections-relatives" class="col-sm-8">—</dd>
                     </dl>
                   </section>
                 </div>
@@ -223,7 +207,10 @@
             id="gallery"
           >
             <article class="col">
-              <div class="card gallery-card h-100 shadow-sm">
+              <div
+                class="card gallery-card h-100 shadow-sm"
+                data-hero-id="1"
+              >
                 <div
                   class="ratio ratio-4x3 bg-light d-flex align-items-center justify-content-center"
                 >
@@ -240,7 +227,10 @@
             </article>
 
             <article class="col">
-              <div class="card gallery-card h-100 shadow-sm">
+              <div
+                class="card gallery-card h-100 shadow-sm"
+                data-hero-id="2"
+              >
                 <div
                   class="ratio ratio-4x3 bg-light d-flex align-items-center justify-content-center"
                 >
@@ -257,7 +247,10 @@
             </article>
 
             <article class="col">
-              <div class="card gallery-card h-100 shadow-sm">
+              <div
+                class="card gallery-card h-100 shadow-sm"
+                data-hero-id="3"
+              >
                 <div
                   class="ratio ratio-4x3 bg-light d-flex align-items-center justify-content-center"
                 >
@@ -274,7 +267,10 @@
             </article>
 
             <article class="col">
-              <div class="card gallery-card h-100 shadow-sm">
+              <div
+                class="card gallery-card h-100 shadow-sm"
+                data-hero-id="4"
+              >
                 <div
                   class="ratio ratio-4x3 bg-light d-flex align-items-center justify-content-center"
                 >
@@ -291,7 +287,10 @@
             </article>
 
             <article class="col">
-              <div class="card gallery-card h-100 shadow-sm">
+              <div
+                class="card gallery-card h-100 shadow-sm"
+                data-hero-id="5"
+              >
                 <div
                   class="ratio ratio-4x3 bg-light d-flex align-items-center justify-content-center"
                 >
@@ -308,7 +307,10 @@
             </article>
 
             <article class="col">
-              <div class="card gallery-card h-100 shadow-sm">
+              <div
+                class="card gallery-card h-100 shadow-sm"
+                data-hero-id="6"
+              >
                 <div
                   class="ratio ratio-4x3 bg-light d-flex align-items-center justify-content-center"
                 >

@@ -1,5 +1,1 @@
-// pending: hook all DOM events to state + UI updates
-
-export function bindEvents() {
-  // TODO: connect search form, controls, gallery interactions
-}
+//js file for all DOM and front end logic from our app
