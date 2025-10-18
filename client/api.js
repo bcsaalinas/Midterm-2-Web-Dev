@@ -2,7 +2,7 @@ const LOCAL_HOSTS = ["localhost", "127.0.0.1"];
 const DEFAULT_LOCAL_API = "http://localhost:3000/api";
 
 const EXTERNAL_API =
-  window.__SUPERHERO_API_URL || "https://superheroe-pedia.onrender.com";
+  window.__SUPERHERO_API_URL || "https://superhero-pedia.onrender.com";
 
 const isLocalHost = LOCAL_HOSTS.includes(window.location.hostname);
 const isSameOrigin = isLocalHost && window.location.port === "3000";
