@@ -24,11 +24,13 @@
 
    ```bash
    npm install
-   npm run dev (For windows npx nodemon index.js)
-   
-   ```
+npm run dev (For windows npx nodemon index.js)
+
+```
 
 4. Open browser at `http://localhost:3000`.
+
+Live version: https://midterm-2-web-Dev.onrender.com
 
 If the API is hosted elsewhere, add this before the `main.js` script in `client/index.html`:
 
