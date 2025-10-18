@@ -8,7 +8,7 @@ import { mapHero, mapHeroSummary } from "./lib/mapHero.js";
 
 const router = Router();
 
-router.get("/api/heroes", async (req, res, next) => {
+router.get("/heroes", async (req, res, next) => {
   try {
     const rawHeroes = await fetchAllHeroes();
     const summaries = rawHeroes.map(function (hero) {
@@ -20,7 +20,7 @@ router.get("/api/heroes", async (req, res, next) => {
   }
 });
 
-router.get("/api/heroes/search", async (req, res, next) => {
+router.get("/heroes/search", async (req, res, next) => {
   try {
     const query = req.query.q;
 
@@ -41,7 +41,7 @@ router.get("/api/heroes/search", async (req, res, next) => {
   }
 });
 
-router.get("/api/heroes/:id", async (req, res, next) => {
+router.get("/heroes/:id", async (req, res, next) => {
   try {
     const id = req.params.id;
     const rawHero = await fetchHeroById(id);

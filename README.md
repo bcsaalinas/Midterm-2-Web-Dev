@@ -1,57 +1,60 @@
 # Superhero-pedia
 
-Here is everything you need to the project, just follow the steps below.
+## How to run
 
-## 1. How to run it
-
-1. **Clone**
+1. Clone:
 
    ```bash
-   git clone + repo url >
-   cd MIDTERM-2-WEB-DEV
+   git clone https://github.com/<your-username>/<your-repo>.git
+   cd MIDTERM-2-WEB-DEV/server
    ```
 
-2. **Server (Express proxy)**
+2. Copy environment file:
+
+   - Windows (PowerShell):
+     ```powershell
+     copy .env.example .env
+     ```
+   - macOS/Linux:
+     ```bash
+     cp .env.example .env
+     ```
+
+3. Install and start server:
 
    ```bash
-   cd server
-   cp .env.example .env     # defaults to PORT=3000
    npm install
-   npm run dev              # starts the API proxy on http://localhost:3000
+   npm run dev
    ```
 
-3. **Client (plain HTML/JS)**
-   - From the project root (or inside `client/`), open `index.html` with a static server:
-     - VS Code Live Server, or
-     - `npx http-server client`
-   - The frontend automatically calls `http://localhost:3000/api/...`, so no extra config needed.
+4. Open browser at `http://localhost:3000`.
 
-## 2. What’s inside
+If the API is hosted elsewhere, add this before the `main.js` script in `client/index.html`:
+
+```html
+<script>
+  window.__SUPERHERO_API_URL = "https://your-api-domain/api";
+</script>
+```
+
+## Project structure
 
 ```
 MIDTERM-2-WEB-DEV/
-├── client/            # index.html, styles.css, JS modules
+├── client/            # HTML, CSS, JS modules
 ├── server/            # Express app
-│   ├── lib/           # data fetch + mapping helpers
-│   ├── routes.js      # /api routes (heroes, search, directory)
-│   ├── index.js       # Express setup, nodemon entry point
-│   └── .env.example   # copy to .env before running
-└── README.md          # this file
+│   ├── lib/           # data fetch and mapping helpers
+│   ├── routes.js      # API routes
+│   ├── index.js       # server entry point
+│   └── .env.example   # environment template
+└── README.md
 ```
 
-## 3. What the app does
+## API routes
 
-- Shows hero spotlight (stats, bio, appearance, connections, portrait).
-- Search box handles both ID and name fragments.
-- Prev/Next buttons wrap around all 731 heroes.
-- “Browse directory” toggle opens an alphabetical list of every hero so you can jump straight to one.
-- Smooth scroll + focus when a hero is selected, so you always land on the details card.
-
-## 4. API endpoints served by our Express proxy
-
-| Route                          | Purpose                                    |
-| ------------------------------ | ------------------------------------------ |
-| `GET /api/heroes/:id`          | Full hero details (used by the spotlight). |
-| `GET /api/heroes/search?q=...` | Search heroes by name fragment.            |
-| `GET /api/heroes`              | Lightweight directory list (id + names).   |
-| `GET /health`                  | Quick check: returns `{ status: "ok" }`.   |
+```
+GET /api/heroes/:id
+GET /api/heroes/search?q=...
+GET /api/heroes
+GET /health
+```
