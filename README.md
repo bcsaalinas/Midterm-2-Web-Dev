@@ -24,7 +24,8 @@
 
    ```bash
    npm install
-   npm run dev
+   npm run dev (For windows npx nodemon index.js)
+   
    ```
 
 4. Open browser at `http://localhost:3000`.
