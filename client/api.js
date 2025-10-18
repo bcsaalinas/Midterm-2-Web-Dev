@@ -1,19 +1,49 @@
-//file to grab data from our endpoint and throw it back to our client
-//since were using dotenv, were not calling the third party API directly
-API_BASE_URL = "/api";
+const API_BASE_URL =
+  window.location.port === "3000" ? "/api" : "http://localhost:3000/api";
 
 export function fetchHeroById(id) {
-  const url = API_BASE_URL + "/heroes" + id;
+  const url = API_BASE_URL + "/heroes/" + id;
+
   return fetch(url)
     .then(function (response) {
-      // check status here
       if (!response.ok) {
-        throw new Error("Hero not found");
+        throw new Error("Hero not found.");
       }
       return response.json();
     })
-    .then(function (data) {
-      return data;
+    .catch(function (error) {
+      throw error;
+    });
+}
+
+export function searchHeroesByName(query) {
+  const url =
+    API_BASE_URL + "/heroes/search?q=" + encodeURIComponent(query || "");
+
+  return fetch(url)
+    .then(function (response) {
+      if (!response.ok) {
+        throw new Error("Search failed.");
+      }
+      return response.json();
+    })
+    .then(function (heroes) {
+      return heroes;
+    })
+    .catch(function (error) {
+      throw error;
+    });
+}
+
+export function fetchHeroDirectory() {
+  const url = API_BASE_URL + "/heroes";
+
+  return fetch(url)
+    .then(function (response) {
+      if (!response.ok) {
+        throw new Error("Could not load hero directory.");
+      }
+      return response.json();
     })
     .catch(function (error) {
       throw error;

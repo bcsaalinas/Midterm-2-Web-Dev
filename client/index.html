@@ -32,7 +32,7 @@
             id="main-nav"
             class="collapse navbar-collapse justify-content-end"
           >
-            <a class="btn btn-outline-light" href="#">About</a>
+            <a class="btn btn-outline-light" href="#about">About</a>
           </div>
         </div>
       </nav>
@@ -64,6 +64,15 @@
             />
             <button class="btn btn-primary" type="submit">Search</button>
           </form>
+          <div class="text-end mt-2">
+            <button
+              id="browse-button"
+              class="btn btn-outline-light btn-sm"
+              type="button"
+            >
+              Browse directory
+            </button>
+          </div>
         </section>
 
         <section class="mb-3" aria-live="polite">
@@ -72,11 +81,34 @@
           </div>
         </section>
 
-        <section aria-label="Hero details">
+        <section
+          id="hero-directory"
+          class="directory card bg-transparent border-light text-light d-none mb-4"
+          aria-label="Hero directory"
+        >
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h2 class="h5 mb-0">Hero Directory</h2>
+              <button
+                id="close-directory"
+                class="btn btn-sm btn-outline-light"
+                type="button"
+              >
+                Close
+              </button>
+            </div>
+            <p class="small text-white-50 mb-3">
+              Pick any hero to load their profile instantly.
+            </p>
+            <div id="directory-content" class="directory-grid"></div>
+          </div>
+        </section>
+
+        <section id="hero-details" tabindex="-1" aria-label="Hero details">
           <div class="row g-4 align-items-center">
             <div class="col-12 col-lg-4">
               <div class="card shadow-sm overflow-hidden">
-                <div class="ratio ratio-4x3 bg-light">
+                <div class="ratio ratio-2x3 bg-light">
                   <img
                     id="hero-image"
                     class="img-fluid hero-image"
@@ -96,7 +128,12 @@
                       <p class="text-muted mb-1 small">
                         ID <span id="hero-id">—</span>
                       </p>
-                      <h1 id="hero-name" class="h3 mb-0" aria-live="polite">
+                      <h1
+                        id="hero-name"
+                        class="h3 mb-0"
+                        aria-live="polite"
+                        tabindex="-1"
+                      >
                         Select a hero
                       </h1>
                       <p id="hero-full-name" class="text-muted mb-0">
@@ -172,7 +209,7 @@
                   </section>
 
                   <section>
-                    <h2 class="h5">Connections &amp; Work</h2>
+                    <h2 class="h5">Connections and Work</h2>
                     <dl class="row mb-0">
                       <dt class="col-sm-4">Group affiliation</dt>
                       <dd id="connections-group" class="col-sm-8">—</dd>
@@ -207,12 +244,9 @@
             id="gallery"
           >
             <article class="col">
-              <div
-                class="card gallery-card h-100 shadow-sm"
-                data-hero-id="1"
-              >
+              <div class="card gallery-card h-100 shadow-sm" data-hero-id="1">
                 <div
-                  class="ratio ratio-4x3 bg-light d-flex align-items-center justify-content-center"
+                  class="ratio ratio-2x3 bg-light d-flex align-items-center justify-content-center"
                 >
                   <span class="text-muted">Portrait incoming</span>
                 </div>
@@ -227,12 +261,9 @@
             </article>
 
             <article class="col">
-              <div
-                class="card gallery-card h-100 shadow-sm"
-                data-hero-id="2"
-              >
+              <div class="card gallery-card h-100 shadow-sm" data-hero-id="2">
                 <div
-                  class="ratio ratio-4x3 bg-light d-flex align-items-center justify-content-center"
+                  class="ratio ratio-2x3 bg-light d-flex align-items-center justify-content-center"
                 >
                   <span class="text-muted">Portrait incoming</span>
                 </div>
@@ -247,12 +278,9 @@
             </article>
 
             <article class="col">
-              <div
-                class="card gallery-card h-100 shadow-sm"
-                data-hero-id="3"
-              >
+              <div class="card gallery-card h-100 shadow-sm" data-hero-id="3">
                 <div
-                  class="ratio ratio-4x3 bg-light d-flex align-items-center justify-content-center"
+                  class="ratio ratio-2x3 bg-light d-flex align-items-center justify-content-center"
                 >
                   <span class="text-muted">Portrait incoming</span>
                 </div>
@@ -267,12 +295,9 @@
             </article>
 
             <article class="col">
-              <div
-                class="card gallery-card h-100 shadow-sm"
-                data-hero-id="4"
-              >
+              <div class="card gallery-card h-100 shadow-sm" data-hero-id="4">
                 <div
-                  class="ratio ratio-4x3 bg-light d-flex align-items-center justify-content-center"
+                  class="ratio ratio-2x3 bg-light d-flex align-items-center justify-content-center"
                 >
                   <span class="text-muted">Portrait incoming</span>
                 </div>
@@ -287,12 +312,9 @@
             </article>
 
             <article class="col">
-              <div
-                class="card gallery-card h-100 shadow-sm"
-                data-hero-id="5"
-              >
+              <div class="card gallery-card h-100 shadow-sm" data-hero-id="5">
                 <div
-                  class="ratio ratio-4x3 bg-light d-flex align-items-center justify-content-center"
+                  class="ratio ratio-2x3 bg-light d-flex align-items-center justify-content-center"
                 >
                   <span class="text-muted">Portrait incoming</span>
                 </div>
@@ -307,10 +329,7 @@
             </article>
 
             <article class="col">
-              <div
-                class="card gallery-card h-100 shadow-sm"
-                data-hero-id="6"
-              >
+              <div class="card gallery-card h-100 shadow-sm" data-hero-id="6">
                 <div
                   class="ratio ratio-4x3 bg-light d-flex align-items-center justify-content-center"
                 >
@@ -325,6 +344,31 @@
                 </div>
               </div>
             </article>
+          </div>
+        </section>
+
+        <section id="about" class="mt-5">
+          <div class="card bg-transparent border-light text-light">
+            <div class="card-body">
+              <h2 class="h4 mb-3">About Superhero-pedia</h2>
+              <p class="mb-3">
+                Superhero-pedia is a learning project that explores the
+                Superhero API. Search by name or ID, flip through powerstats,
+                and discover fun facts for each hero or villain.
+              </p>
+              <p class="mb-0">
+                Built with vanilla JavaScript, Bootstrap 5, and an Express
+                backend proxy to keep requests safe and fast. Data provided by
+                the open-source
+                <a
+                  class="link-light text-decoration-underline"
+                  href="https://akabab.github.io/superhero-api/api/"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  >Superhero API</a
+                >.
+              </p>
+            </div>
           </div>
         </section>
       </div>
