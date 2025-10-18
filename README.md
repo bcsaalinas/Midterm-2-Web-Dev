@@ -1,63 +1,63 @@
-# Superhero-pedia
+🦸‍♂️ Superhero-pedia
 
-## How to run
+Simple full-stack web app that lets you explore information about superheroes and villains using the SuperHero API
+.
+Built with Node.js, Express, Bootstrap, and Vanilla JavaScript.
 
-1. Clone:
+🔗 Live Site
 
-   ```bash
-   git clone https://github.com/<your-username>/<your-repo>.git
-   cd MIDTERM-2-WEB-DEV/server
-   ```
+👉 https://midterm-2-web-Dev.onrender.com
 
-2. Copy environment file:
+🧩 How to run locally
 
-   - Windows (PowerShell):
-     ```powershell
-     copy .env.example .env
-     ```
-   - macOS/Linux:
-     ```bash
-     cp .env.example .env
-     ```
+Clone the repo
 
-3. Install and start server:
+git clone https://github.com/<your-username>/<your-repo>.git
+cd MIDTERM-2-WEB-DEV/server
 
-   ```bash
-   npm install
-npm run dev (For windows npx nodemon index.js)
+Copy the environment file
 
-```
+cp .env.example .env
 
-4. Open browser at `http://localhost:3000`.
+Fill it with your SuperHero API key.
 
-Live version: https://midterm-2-web-Dev.onrender.com
+Install dependencies and start the server
 
-If the API is hosted elsewhere, add this before the `main.js` script in `client/index.html`:
+npm install
+npm run dev
 
-```html
-<script>
-  window.__SUPERHERO_API_URL = "https://your-api-domain/api";
-</script>
-```
+or
 
-## Project structure
+npx nodemon index.js
 
-```
+Open your browser at
+http://localhost:3000
+
+🧠 What it does
+
+Shows one hero at a time
+
+Lets you go Next / Previous (wraps around)
+
+Lets you Search by name
+
+Displays hero info (powerstats, appearance, biography, etc.)
+
+Handles missing data with default images and placeholders
+
+🗂️ Project structure
 MIDTERM-2-WEB-DEV/
-├── client/            # HTML, CSS, JS modules
-├── server/            # Express app
-│   ├── lib/           # data fetch and mapping helpers
-│   ├── routes.js      # API routes
-│   ├── index.js       # server entry point
-│   └── .env.example   # environment template
+├── client/ # Frontend (HTML, CSS, JS)
+├── server/ # Backend (Express)
+│ ├── lib/ # API + data helpers
+│ ├── routes.js # Routes
+│ ├── index.js # Server entry
+│ └── .env.example
 └── README.md
-```
 
-## API routes
-
-```
+🧾 API routes
 GET /api/heroes/:id
-GET /api/heroes/search?q=...
-GET /api/heroes
+GET /api/heroes/search?q=
 GET /health
-```
+
+Made with love and hella console.logs.
